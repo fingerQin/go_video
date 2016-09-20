@@ -1,0 +1,45 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>升级文档</title>
+<style type="text/css">
+body,td,th {
+	font-size: 14px;
+	line-height: 22px;
+}
+p {
+	padding-left: 20px;
+	margin: 0px;
+	padding-top: 5px;
+	padding-bottom: 5px;
+}
+body {
+	margin-left: 0px;
+	margin-top: 0px;
+	margin-right: 0px;
+	margin-bottom: 0px;
+}
+</style>
+</head>
+
+<body>
+<p>6.3升级说明</p>
+<p>一：javascript部份<br />
+  1、为了兼容有些版本的flashplayer对中文支持不友好的问题，所以把大部分涉及中文(主要是按钮提示文字)的部分单独分开成一个语言包(默认是language.xml)，该功能需要在风格配置文件里增加一个参数，（ckplayer.js&gt;ckstyle()里增加language:'',ckplayer.xml里增加&lt;language&gt;&lt;/language&gt;）其它包含中文的地方（主要是滚动文字广告部份），在ckplayer.js中使用escape函数对期进行转码。</p>
+<p>2、规范了ckplayer.js里代码的写法，以前是用的 var ck=new Object(),ck.属性=值的写法，现在统一成var ck={属性:值,属性2:值}</p>
+<p>3、优化了CKobject部份函数，特别针对调用时的f值进行了判断，如果f是相对路径并且ckstyle函数里没有使用替换函数的话会自动转换成相对路径并对其进行转码操作<br />
+</p>
+<p>二：flash播放器部份<br />
+  1：风格文件包现在是默认加载style.swf而不是原来的style.zip，因为有些用户或服务器对zip加载不友好。升级的方法就是把原来的style.zip改成style.swf即可，如果要修改里面的内容就再改回来</p>
+<p>2：ckplayer.js&gt;ckstyle()函数&gt;setup的第29个值(ckplayer.xml里对应的是setup属性的第29个值)进行了优化，默认是0，正常状态，=1是控制栏默认是隐藏状态，只有当用户鼠标经过播放器并且播放已开始时，控制栏才会显示，=2时是控制栏永久隐藏</p>
+<p>3：ckplayer.js&gt;ckstyle()函数&gt;setup(ckplayer.xml里对应的是setup属性)里增加了一个值，即第39个值，该值的功能是保证前置logo至少显示的时长，默认是0，单位毫秒。</p>
+<p>4：修正了鼠标手型的问题，即使用鼠标手型的时候，播放器全部使用手型样式</p>
+<p>5：修正了p=0时(播放器默认暂停)无法加载默认图片(i值)的问题</p>
+<p>6：增加了一个控制栏缓动效果，你可以把该参数放在ckplayer.js或ckplayer.xml里，也可以放在style.zip里的style.xml里，参数是ckplayer.js&gt;ckstyle()函数&gt;pm_tween，ckplayer.xml里或style.zip&gt;style.xml里是&lt;pm_tween&gt;&lt;/pm_tween&gt;，该参数有三个值，以style.zip&gt;style.xml里为例&lt;pm_tween&gt;50,300,500&lt;/pm_tween&gt;，第一个值是是否启用控制栏缓动，0是不启动，1是启用透明度缓动，大于1则是启用y坐标向下缓动，比如例子中的50即是向下移动50个像素。第二个参数是缓动的时间，单位毫秒，第3个参数是视频区域是否使用缓动，0是不使用，大于0时(建议最好&gt;100)，将在播放器全屏或尺寸发生变化时使用缓动变化</p>
+<p>7：插件的升级，插件(原来使用是：cpt += 'right.swf,2,1,-75,-100,2,0|，新的使用在末尾增加了一个参数（cpt += 'right.swf,2,1,-75,-100,2,0|'），默认是0，当=1时该插件将跟着控制栏一起使用缓动效果，即把该插件绑定到控制栏上</p>
+<p>8：在ckplayer.js的ckstyle()函数中和ckplayer.xml里增加了一个参数：pm_fpac<br />
+		该参数的作用是你可以在前台调用播放器的flashvars里使用自定义的参数来向播放器传值，这里默认的设置了一个file-&gt;f，意思是你的var falshvars={file:'视频地址'}就相当于var falshvars={f:'视频地址'}<br />
+</p>
+</body>
+</html>

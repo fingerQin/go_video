@@ -1,0 +1,95 @@
+/*
+ @基于 fancybox 的弹出层样式
+ @author: dengwenfeng@4399.com
+ @date: 2013-11-09
+ */
+.fancy_modal {
+    display: none;
+    min-width: 360px;
+}
+.fancy_content {
+    min-height: 160px;
+    padding: 10px;
+}
+.fancy_header {
+    height: 31px;
+    border-bottom: 1px solid #E5E5E5;
+    background: #F3F3F3;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+}
+.fancy_footer {
+    height: 40px;
+    border-top: 1px solid #E5E5E5;
+    background: #F3F3F3;
+    border-bottom-left-radius: 5px;
+    border-bottom-right-radius: 5px;
+    text-align: right;
+    padding-right: 10px;
+}
+.fancy_footer a {
+    text-decoration: none;
+}
+a.fancy_button {
+    display: inline-block;
+    padding: 4px 12px;
+    margin-bottom: 0;
+    font-size: 12px;
+    font-weight: normal;
+    line-height: 1.428571429;
+    text-align: center;
+    white-space: nowrap;
+    vertical-align: middle;
+    cursor: pointer;
+    border: 1px solid transparent;
+    border-radius: 4px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    -o-user-select: none;
+    user-select: none;
+    margin: 5px 2px;
+}
+a.fancy_button_success {
+    color: #ffffff;
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+}
+a.fancy_button_success:hover {
+    color: #ffffff;
+    background-color: #47a447;
+    border-color: #398439;
+}
+a.fancy_button_default {
+    color: #333333;
+    background-color: #ffffff;
+    border-color: #cccccc;
+}
+a.fancy_button_default:hover {
+    color: #333333;
+    background-color: #ebebeb;
+    border-color: #adadad;
+}
+.fancy_header h3 {
+    float: left;
+    height: 31px;
+    color: #4C4C4C;
+    font-size: 14px;
+    line-height: 31px;
+    overflow: hidden;
+    margin: 0;
+    padding-left: 10px;
+    font-weight: bold;
+    text-shadow: 0 1px 1px #FFF;
+}
+.fancybox-overlay {
+    background: rgba(0, 0, 0, .1);
+}
+.fancybox-opened .fancybox-skin, .fancybox-skin{
+    border: 1px solid #ccc;
+    box-shadow: 0 0 5px #ccc;
+    padding:0;
+}
+.fancybox-skin {
+    background:#fcfcfc;
+}
